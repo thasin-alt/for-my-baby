@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>100 Reasons Why You're the best ❤️</title>
+  <style>
+    :root {
+      --pink: #ffd6e8;
+      --pink2: #ffb6d9;
+      --lavender: #e6e0ff;
+      --lavender2: #cdb8ff;
+      --white: #fffafc;
+      --text: #5a4364;
+      --accent: #ff6fa1;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      font-family: 'Segoe UI', 'Trebuchet MS', sans-serif;
+      color: var(--text);
+      overflow-x: hidden;
+      user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      background: linear-gradient(135deg, var(--pink) 0%, var(--lavender) 50%, var(--pink2) 100%);
+      background-size: 400% 400%;
+      animation: gradientShift 18s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Floating hearts / sparkles background */
+    #bg-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .floatie {
+      position: absolute;
+      bottom: -50px;
+      font-size: 1.5rem;
+      opacity: 0.6;
+      animation: floatUp linear infinite;
+      user-select: none;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 0.7;
+      }
+
+      90% {
+        opacity: 0.7;
+      }
+
+      100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      z-index: 1;
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .hero h1 {
+      font-family: 'Georgia', serif;
+      font-size: clamp(2rem, 6vw, 4rem);
+      background: linear-gradient(90deg, var(--accent), var(--lavender2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 4px 30px rgba(255, 111, 161, 0.25);
+      animation: fadeInDown 1.2s ease;
+    }
+
+    .hero p {
+      margin-top: 1rem;
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      color: #7a647f;
+      animation: fadeInUp 1.4s ease;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .start-btn {
+      margin-top: 2.5rem;
+      padding: 0.9rem 2.4rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 50px;
+      background: linear-gradient(135deg, var(--accent), var(--lavender2));
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(255, 111, 161, 0.4);
+      transition: transform .25s ease, box-shadow .25s ease;
+      animation: pulse 2.5s infinite, fadeInUp 1.6s ease;
+      letter-spacing: 0.5px;
+    }
+
+    .start-btn:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 12px 35px rgba(255, 111, 161, 0.55);
+    }
+
+    .start-btn:active {
+      transform: translateY(-1px) scale(0.98);
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 8px 25px rgba(255, 111, 161, 0.4);
+      }
+
+      50% {
+        box-shadow: 0 8px 35px rgba(255, 111, 161, 0.7);
+      }
+    }
+
+    /* Progress tracker */
+    .progress-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      width: 100%;
+      padding: 0.8rem 1rem;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .progress-inner {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #7a647f;
+    }
+
+    .progress-bar-bg {
+      width: 100%;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 0.4rem;
+      box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--lavender2));
+      border-radius: 10px;
+      transition: width .4s ease;
+    }
+
+    /* Section titles */
+    .section-title {
+      text-align: center;
+      font-family: 'Georgia', serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      margin: 3rem 0 1.5rem;
+      color: #7a4d6e;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Cards grid */
+    .grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.2rem 3rem;
+    }
+
+    .card {
+      perspective: 1000px;
+      height: 150px;
+      cursor: pointer;
+      animation: cardFloat 5.5s ease-in-out infinite;
+      animation-delay: calc((var(--i, 0) % 8) * -0.35s);
+    }
+
+    .card:nth-child(2n) {
+      animation-duration: 6.5s;
+    }
+
+    .card:nth-child(3n) {
+      animation-duration: 7.2s;
+    }
+
+    @keyframes cardFloat {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform .6s cubic-bezier(.4, .2, .2, 1);
+      transform-style: preserve-3d;
+    }
+
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0.7rem;
+      backface-visibility: hidden;
+      background: rgba(255, 255, 255, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      box-shadow: 0 6px 18px rgba(190, 150, 200, 0.25);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+    }
+
+    .card:hover .card-face {
+      transform: translateY(-3px);
+      border-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 12px 26px rgba(190, 150, 200, 0.34);
+    }
+
+    .card-front {
+      font-family: 'Georgia', serif;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: var(--accent);
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      font-size: 0.85rem;
+      line-height: 1.3;
+      color: #5a4364;
+      background: linear-gradient(135deg, rgba(255, 214, 232, 0.6), rgba(230, 224, 255, 0.6));
+    }
+
+    .heart-icon {
+      position: absolute;
+      top: 6px;
+      right: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      z-index: 2;
+      transition: transform .2s ease;
+      filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+    }
+
+    .heart-icon:hover {
+      transform: scale(1.3);
+    }
+
+    .heart-icon.active {
+      animation: heartPop .4s ease;
+    }
+
+    @keyframes heartPop {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.5);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .card.opened .card-front {
+      opacity: 0.5;
+    }
+
+    /* Favorites section */
+    .favorites-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.2rem 2rem;
+    }
+
+    .fav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+    }
+
+    .fav-card {
+      background: linear-gradient(135deg, rgba(255, 182, 217, 0.5), rgba(205, 184, 255, 0.5));
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 16px;
+      padding: 0.8rem;
+      font-size: 0.85rem;
+      text-align: center;
+      box-shadow: 0 6px 18px rgba(190, 150, 200, 0.25);
+      backdrop-filter: blur(8px);
+    }
+
+    .empty-msg {
+      text-align: center;
+      color: #9c819f;
+      font-style: italic;
+      padding: 1rem;
+    }
+
+    /* Love letter */
+    .love-letter-wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 3rem auto;
+      padding: 0 1.2rem 4rem;
+      text-align: center;
+    }
+
+    .love-letter {
+      background: rgba(255, 255, 255, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 10px 40px rgba(190, 150, 200, 0.3);
+      backdrop-filter: blur(10px);
+      font-family: 'Georgia', serif;
+      line-height: 1.8;
+      font-size: 1.05rem;
+      color: #6a4f63;
+      opacity: 0;
+      transform: translateY(40px) scale(0.96);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .love-letter.revealed {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .love-letter h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .locked-msg {
+      color: #9c819f;
+      font-style: italic;
+    }
+
+    /* Music toggle */
+    .music-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--lavender2));
+      border: none;
+      color: white;
+      font-size: 1.4rem;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(255, 111, 161, 0.4);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .3s ease;
+    }
+
+    .music-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .music-btn.playing {
+      animation: spin 4s linear infinite, musicGlow 1.6s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes musicGlow {
+
+      0%,
+      100% {
+        box-shadow: 0 6px 20px rgba(255, 111, 161, 0.4);
+      }
+
+      50% {
+        box-shadow: 0 6px 34px rgba(255, 111, 161, 0.8);
+      }
+    }
+
+    .burst-piece {
+      position: fixed;
+      pointer-events: none;
+      z-index: 150;
+      font-size: 1rem;
+      animation: burstPop .9s ease-out forwards;
+    }
+
+    @keyframes burstPop {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(.4) rotate(0deg);
+      }
+
+      20% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1.35) rotate(24deg);
+      }
+    }
+
+    .trail-heart {
+      position: fixed;
+      pointer-events: none;
+      z-index: 150;
+      font-size: .9rem;
+      animation: trailFloat 1.2s ease-out forwards;
+    }
+
+    @keyframes trailFloat {
+      from {
+        opacity: .75;
+        transform: translate(-50%, -50%) scale(.75);
+      }
+
+      to {
+        opacity: 0;
+        transform: translate(-50%, -85px) scale(1.4);
+      }
+    }
+
+    /* Celebration overlay */
+    .celebration {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .6s ease;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .celebration.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .celebration-box {
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 15px 50px rgba(190, 150, 200, 0.4);
+      max-width: 500px;
+    }
+
+    .celebration-box h2 {
+      font-family: 'Georgia', serif;
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .celebration-box p {
+      font-size: 1.1rem;
+      color: #6a4f63;
+    }
+
+    .confetti {
+      position: fixed;
+      top: -20px;
+      border-radius: 2px;
+      z-index: 201;
+      pointer-events: none;
+      animation: confettiFall linear forwards;
+    }
+
+    @keyframes confettiFall {
+      to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #9c819f;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Floating hearts/sparkles background -->
+  <div id="bg-canvas"></div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>100 Reasons Why You're the best ❤️</h1>
+    <p>A little website dedicated to my baby girl.</p>
+    <button class="start-btn" onclick="scrollToGrid()">Start Exploring 💕</button>
+  </section>
+
+  <!-- Progress tracker -->
+  <div class="progress-wrap">
+    <div class="progress-inner">
+      <span id="progress-text">0 / 100 reasons discovered</span>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progress-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reason cards -->
+  <h2 class="section-title" id="grid-title">Tap a card to reveal a reason ✨</h2>
+  <div class="grid" id="card-grid"></div>
+
+  <!-- Favorites -->
+  <h2 class="section-title">Your Favorite Reasons 💖</h2>
+  <div class="favorites-wrap">
+    <div class="fav-grid" id="fav-grid"></div>
+    <p class="empty-msg" id="empty-fav-msg">Tap the little heart on any card to save it here!</p>
+  </div>
+
+  <!-- Love letter -->
+  <div class="love-letter-wrap">
+    <h2 class="section-title">A Little Something Extra</h2>
+    <div class="love-letter" id="love-letter">
+      <h3>My Dearest,rumaisha</h3>
+      <p>
+        If you're reading this, it means you've opened at least 50 little reasons —
+        and honestly, that's only the tip of the iceberg. There's so much about you
+        that I could spend forever and still not cover it all.<br><br>
+        Thank you for being exactly who you are. Thank you for the way you laugh,
+        the way you care, and the way you make even ordinary days feel special.
+        You deserve all the love in the world, and then some.<br><br>
+        Keep going — there are more reasons waiting for you. 💌
+      </p>
+    </div>
+    <p class="locked-msg" id="locked-msg">🔒 Open 50 cards to unlock this letter...</p>
+  </div>
+
+  <!-- Music toggle -->
+  <button class="music-btn" id="music-btn" onclick="toggleMusic()" title="Toggle music" aria-label="Toggle music" aria-pressed="false">🎵</button>
+  <!-- Add your own song by uncommenting and setting the src -->
+  <audio id="bg-music" loop>
+    <source src="me gustas tu.aac" type="audio/aac">
+  </audio>
+
+  <!-- Celebration overlay -->
+  <div class="celebration" id="celebration">
+    <div class="celebration-box">
+      <h2>You did it! 🎉</h2>
+      <p>And that's still not enough reasons to describe how amazing you are ❤️</p>
+    </div>
+  </div>
+
+  <footer>
+    Made with ❤️ just for you.
+  </footer>
+
+  <script>
+    /* ================================
+       100 Reasons Data
+       Edit this array to customize!
+    ================================ */
+    const reasons = [
+      "Your smile brightens my day.",
+      "You always know how to make me laugh.",
+      "You inspire me to be better.",
+      "Your kindness never goes unnoticed.",
+      "You have the most beautiful eyes.",
+      "You make even boring days fun.",
+      "Your laugh is contagious.",
+      "You're incredibly thoughtful.",
+      "You always know what to say.",
+      "Your hugs feel like home.",
+      "You're so much stronger than you realize.",
+      "You make everyone around you feel valued.",
+      "Your creativity amazes me.",
+      "You have such a good heart.",
+      "You're brave even when you're scared.",
+      "Your energy is unmatched.",
+      "You always support the people you love.",
+      "You're a great listener.",
+      "Your sense of humor is the best.",
+      "You light up every room you walk into.",
+      "You're patient even in tough moments.",
+      "Your determination inspires me.",
+      "You make ordinary moments magical.",
+      "Your voice is so calming.",
+      "You're incredibly generous.",
+      "You always try your best.",
+      "Your honesty means everything to me.",
+      "You have impeccable taste.",
+      "You're so easy to talk to.",
+      "Your hugs make everything better.",
+      "You're a great problem solver.",
+      "You always make time for the people who matter.",
+      "Your smile is my favorite thing.",
+      "You're confident in your own way.",
+      "Your dedication is admirable.",
+      "You make me want to be a better person.",
+      "Your kindness is a superpower.",
+      "You always find the silver lining.",
+      "You're so much fun to be around.",
+      "Your intelligence is incredible.",
+      "You handle challenges with grace.",
+      "You're always there when I need you.",
+      "Your warmth makes people feel safe.",
+      "You have great instincts.",
+      "Your passion for things you love is beautiful.",
+      "You're a great friend to everyone.",
+      "Your curiosity makes life exciting.",
+      "You always make people feel included.",
+      "Your resilience is inspiring.",
+      "You make the little things memorable.",
+      "Your style is effortlessly cool.",
+      "You're so genuine.",
+      "Your optimism is contagious.",
+      "You bring out the best in people.",
+      "Your work ethic is amazing.",
+      "You always know how to cheer someone up.",
+      "Your perspective on life is refreshing.",
+      "You're so easy to love.",
+      "Your patience with others is admirable.",
+      "You make people feel heard.",
+      "Your sense of adventure is inspiring.",
+      "You're always learning and growing.",
+      "Your loyalty means everything.",
+      "You have a heart of gold.",
+      "Your jokes always land perfectly.",
+      "You're great at giving advice.",
+      "Your presence is comforting.",
+      "You make people feel special.",
+      "Your ambition is admirable.",
+      "You're so adaptable.",
+      "Your kindness towards strangers says a lot about you.",
+      "You're always improving yourself.",
+      "Your taste in music is great.",
+      "You're so charismatic.",
+      "Your smile can fix a bad day.",
+      "You always know how to lighten the mood.",
+      "Your dedication to your goals is inspiring.",
+      "You're an amazing problem solver.",
+      "Your empathy makes you special.",
+      "You always make people laugh.",
+      "Your confidence is attractive.",
+      "You're so easy to be around.",
+      "Your support means the world.",
+      "You have a magnetic personality.",
+      "Your honesty is refreshing.",
+      "You're always willing to help.",
+      "Your creativity never stops amazing me.",
+      "You make people feel loved.",
+      "Your strength inspires everyone around you.",
+      "You're an incredible communicator.",
+      "Your sense of style is iconic.",
+      "You always know how to make things better.",
+      "Your positivity is infectious.",
+      "You're amazing at what you do.",
+      "Your love for life is beautiful.",
+      "You make everything more fun.",
+      "Your heart is bigger than you know.",
+      "And the 100th reason... you're simply, undeniably, wonderfully YOU. ❤️"
+    ];
+
+    /* ================================
+       State
+    ================================ */
+    let openedCount = 0;
+    let favorites = new Set();
+    let celebrated = false;
+    let audioContext = null;
+    let melodyTimer = null;
+    let generatedMusicPlaying = false;
+    let lastTrailTime = 0;
+
+    /* ================================
+       Build the card grid
+    ================================ */
+    const grid = document.getElementById('card-grid');
+
+    reasons.forEach((reason, i) => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.dataset.index = i;
+      card.style.setProperty('--i', i);
+      card.tabIndex = 0;
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-label', `Reveal reason ${i + 1}`);
+
+      card.innerHTML = `
+    <div class="card-inner">
+      <div class="card-face card-front">${i + 1}</div>
+      <div class="card-face card-back">
+        <span class="heart-icon" data-index="${i}">🤍</span>
+        <span>${reason}</span>
+      </div>
+    </div>
+  `;
+
+      // Flip on click (but not when clicking the heart)
+      card.addEventListener('click', (e) => {
+        if (e.target.classList.contains('heart-icon')) return;
+        flipCard(card);
+        createBurst(e.clientX, e.clientY);
+      });
+
+      card.addEventListener('keydown', (e) => {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        e.preventDefault();
+        flipCard(card);
+        const rect = card.getBoundingClientRect();
+        createBurst(rect.left + rect.width / 2, rect.top + rect.height / 2);
+      });
+
+      grid.appendChild(card);
+    });
+
+    // Heart icon listeners (added after grid is built)
+    document.querySelectorAll('.heart-icon').forEach(heart => {
+      heart.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleFavorite(heart);
+      });
+    });
+
+    /* ================================
+       Flip logic
+    ================================ */
+    function flipCard(card) {
+      if (!card.classList.contains('flipped')) {
+        card.classList.add('flipped');
+      }
+      if (!card.classList.contains('opened')) {
+        card.classList.add('opened');
+        openedCount++;
+        updateProgress();
+        card.setAttribute('aria-label', `Reason ${parseInt(card.dataset.index, 10) + 1} revealed`);
+      }
+    }
+
+    /* ================================
+       Progress tracker
+    ================================ */
+    function updateProgress() {
+      const total = reasons.length;
+      document.getElementById('progress-text').textContent = `${openedCount} / ${total} reasons discovered`;
+      document.getElementById('progress-bar').style.width = `${(openedCount / total) * 100}%`;
+
+      // Unlock love letter at 50
+      if (openedCount >= 50) {
+        document.getElementById('love-letter').classList.add('revealed');
+        document.getElementById('locked-msg').style.display = 'none';
+      }
+
+      // Celebration at 100
+      if (openedCount === total && !celebrated) {
+        celebrated = true;
+        setTimeout(triggerCelebration, 400);
+      }
+    }
+
+    /* ================================
+       Favorites
+    ================================ */
+    function toggleFavorite(heartEl) {
+      const index = heartEl.dataset.index;
+      if (favorites.has(index)) {
+        favorites.delete(index);
+        heartEl.textContent = '🤍';
+        heartEl.classList.remove('active');
+      } else {
+        favorites.add(index);
+        heartEl.textContent = '❤️';
+        heartEl.classList.add('active');
+        const rect = heartEl.getBoundingClientRect();
+        createBurst(rect.left + rect.width / 2, rect.top + rect.height / 2);
+      }
+      renderFavorites();
+    }
+
+    function renderFavorites() {
+      const favGrid = document.getElementById('fav-grid');
+      const emptyMsg = document.getElementById('empty-fav-msg');
+      favGrid.innerHTML = '';
+
+      if (favorites.size === 0) {
+        emptyMsg.style.display = 'block';
+        return;
+      }
+      emptyMsg.style.display = 'none';
+
+      favorites.forEach(idx => {
+        const div = document.createElement('div');
+        div.className = 'fav-card';
+        div.innerHTML = `<strong>#${parseInt(idx) + 1}</strong><br>${reasons[idx]}`;
+        favGrid.appendChild(div);
+      });
+    }
+
+    /* ================================
+       Celebration + confetti
+    ================================ */
+    function triggerCelebration() {
+      const overlay = document.getElementById('celebration');
+      overlay.classList.add('show');
+
+      // Confetti burst
+      const colors = ['#ff6fa1', '#ffb6d9', '#cdb8ff', '#ffd6e8', '#fff'];
+      for (let i = 0; i < 120; i++) {
+        const conf = document.createElement('div');
+        conf.className = 'confetti';
+        const size = Math.random() * 8 + 6;
+        conf.style.width = size + 'px';
+        conf.style.height = size + 'px';
+        conf.style.left = Math.random() * 100 + 'vw';
+        conf.style.background = colors[Math.floor(Math.random() * colors.length)];
+        conf.style.animationDuration = (Math.random() * 2 + 2) + 's';
+        conf.style.animationDelay = (Math.random() * 0.5) + 's';
+        document.body.appendChild(conf);
+        setTimeout(() => conf.remove(), 4500);
+      }
+
+      // Dismiss overlay on click
+      overlay.addEventListener('click', () => overlay.classList.remove('show'));
+    }
+
+    /* ================================
+       Music toggle
+    ================================ */
+    function toggleMusic() {
+      const audio = document.getElementById('bg-music');
+      const btn = document.getElementById('music-btn');
+
+      if (!audio.src) {
+        audio.src = "your-song.mp3";
+      }
+
+      if (audio.paused) {
+        audio.play();
+        btn.classList.add('playing');
+        btn.textContent = '🎶';
+      } else {
+        audio.pause();
+        btn.classList.remove('playing');
+        btn.textContent = '🎵';
+      }
+    }
+
+    function hasAudioSource(audio) {
+      return Boolean(audio.currentSrc || audio.getAttribute('src') || audio.querySelector('source[src]'));
+    }
+
+    function setMusicButton(isPlaying) {
+      const btn = document.getElementById('music-btn');
+      btn.classList.toggle('playing', isPlaying);
+      btn.textContent = isPlaying ? '🎶' : '🎵';
+      btn.setAttribute('aria-pressed', String(isPlaying));
+    }
+
+    function startGeneratedSong() {
+      const audio = document.getElementById('bg-music');
+      if (!audio.paused) {
+        audio.pause();
+      }
+
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) {
+        alert('Music is not supported in this browser.');
+        return;
+      }
+
+      audioContext = audioContext || new AudioCtx();
+      if (audioContext.state === 'suspended') {
+        audioContext.resume();
+      }
+
+      generatedMusicPlaying = true;
+      setMusicButton(true);
+
+      const melody = [
+        523.25, 659.25, 783.99, 659.25,
+        587.33, 698.46, 880.00, 698.46,
+        659.25, 783.99, 987.77, 783.99,
+        698.46, 659.25, 587.33, 523.25
+      ];
+      let step = 0;
+
+      const playNote = () => {
+        if (!generatedMusicPlaying || !audioContext) return;
+
+        const now = audioContext.currentTime;
+        const osc = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        const filter = audioContext.createBiquadFilter();
+
+        osc.type = 'triangle';
+        osc.frequency.value = melody[step % melody.length];
+        filter.type = 'lowpass';
+        filter.frequency.value = 1800;
+
+        gain.gain.setValueAtTime(0.0001, now);
+        gain.gain.exponentialRampToValueAtTime(0.08, now + 0.03);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.42);
+
+        osc.connect(filter);
+        filter.connect(gain);
+        gain.connect(audioContext.destination);
+        osc.start(now);
+        osc.stop(now + 0.45);
+
+        step++;
+        melodyTimer = setTimeout(playNote, step % 4 === 0 ? 420 : 300);
+      };
+
+      playNote();
+      createBurst(window.innerWidth - 48, window.innerHeight - 48);
+    }
+
+    function stopGeneratedSong() {
+      generatedMusicPlaying = false;
+      clearTimeout(melodyTimer);
+      melodyTimer = null;
+      setMusicButton(false);
+    }
+
+    function toggleMusic() {
+      const audio = document.getElementById('bg-music');
+
+      if (hasAudioSource(audio)) {
+        if (audio.paused) {
+          audio.play()
+            .then(() => setMusicButton(true))
+            .catch(() => startGeneratedSong());
+        } else {
+          audio.pause();
+          setMusicButton(false);
+        }
+        return;
+      }
+
+      if (generatedMusicPlaying) {
+        stopGeneratedSong();
+      } else {
+        startGeneratedSong();
+      }
+    }
+
+    /* ================================
+       Scroll to grid
+    ================================ */
+    function scrollToGrid() {
+      document.getElementById('grid-title').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function createBurst(x, y) {
+      const symbols = ['💖', '💕', '✨', '💗', '🌸', '💫'];
+      for (let i = 0; i < 10; i++) {
+        const piece = document.createElement('span');
+        const angle = (Math.PI * 2 * i) / 10;
+        const distance = Math.random() * 44 + 32;
+        piece.className = 'burst-piece';
+        piece.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        piece.style.left = x + 'px';
+        piece.style.top = y + 'px';
+        piece.style.setProperty('--dx', Math.cos(angle) * distance + 'px');
+        piece.style.setProperty('--dy', Math.sin(angle) * distance + 'px');
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 950);
+      }
+    }
+
+    function createTrailHeart(x, y) {
+      const now = Date.now();
+      if (now - lastTrailTime < 90) return;
+      lastTrailTime = now;
+
+      const heart = document.createElement('span');
+      heart.className = 'trail-heart';
+      heart.textContent = Math.random() > 0.45 ? '💕' : '✨';
+      heart.style.left = x + 'px';
+      heart.style.top = y + 'px';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 1250);
+    }
+
+    document.addEventListener('pointermove', (e) => {
+      if (window.innerWidth < 700) return;
+      createTrailHeart(e.clientX, e.clientY);
+    });
+
+    /* ================================
+       Floating hearts & sparkles background
+    ================================ */
+    function createFloaties() {
+      const bg = document.getElementById('bg-canvas');
+      const symbols = ['💖', '💕', '✨', '💗', '🌸', '💫', '💞'];
+      const count = window.innerWidth < 700 ? 14 : 24;
+
+      for (let i = 0; i < count; i++) {
+        const el = document.createElement('div');
+        el.className = 'floatie';
+        el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        el.style.left = Math.random() * 100 + 'vw';
+        el.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+        el.style.animationDuration = (Math.random() * 12 + 10) + 's';
+        el.style.animationDelay = (Math.random() * 15) + 's';
+        bg.appendChild(el);
+      }
+    }
+    createFloaties();
+
+    /* Initialize favorites display */
+    renderFavorites();
+  </script>
+
+</body>
+
+</html>
